@@ -1,0 +1,6 @@
+@prefix lm: <http://jena.hpl.hp.com/2004/08/location-mapping#> .
+
+[] lm:mapping
+
+   [ lm:name "http://xmlns.com/foaf/0.1/" ;                                     lm:altName "etc/foaf.owl" ]
+.

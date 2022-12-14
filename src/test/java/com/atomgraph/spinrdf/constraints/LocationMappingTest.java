@@ -16,11 +16,13 @@
  */
 package com.atomgraph.spinrdf.constraints;
 
+import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.Ontology;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.sys.JenaSystem;
+import org.apache.jena.util.LocationMapper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,6 +45,9 @@ public class LocationMappingTest
     @Before
     public void ontology()
     {
+        LocationMapper lm = new LocationMapper("etc/non-default-mapping.ttl");
+        OntDocumentManager.getInstance().getFileManager().setLocationMapper(lm);
+        
         ontModel = ModelFactory.createOntologyModel();
         
         ontology = ontModel.createOntology("http://ontology/");
